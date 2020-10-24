@@ -1,0 +1,22 @@
+<svg width="226.17" height="262.67" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <clipPath id="a">
+   <rect id="svg_1" fill="none" height="373.23" width="358.72" y="-44.14" x="-88"/>
+  </clipPath>
+ </defs>
+ <title>red-blurb</title>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="602" width="802" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_2" opacity="0.5">
+   <g id="svg_3" clip-path="url(#a)">
+    <path id="svg_4" fill="#c41230" d="m10.51,71.43a111.11,111.11 0 1 1 133.05,148.7l-141.4,40.42l21.77,-81.93a110.86,110.86 0 0 1 -13.42,-107.19"/>
+   </g>
+  </g>
+  <path id="svg_5" fill="#c41230" d="m186.83,183.87a36.47,36.47 0 1 0 -43.67,48.81l46.41,13.27l-7.15,-26.89a36.39,36.39 0 0 0 4.41,-35.18"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="7" id="svg_9" y="200.93872" x="116.47161" stroke-width="0" fill="#ffffff">ADILABADPROPERTY</text>
+ </g>
+</svg>
