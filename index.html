@@ -1,16 +1,737 @@
-<!DOCTYPE html><html><head><title>AdilabadProperty</title><meta name="description" content="Finding property made easier."><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"><link rel="stylesheet" type="text/css" href="index.css"><script type="text/javascript" src="local_js/jquery_2.1.1.min.js"></script><script type="text/javascript" src="local_js/jquery.validate.min.js"></script><script type="text/javascript" src="local_js/jquery.form.min.js"></script><header class="navbar nav-right"> <div class="container"> <div class="navbar-header"> <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Skip navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <div class="navbar-brand"> <a href="index.html"> <img id="logo" src="images/logo.png" alt="Logo"> </a> </div> <nav class="collapse navbar-collapse" role="navigation"> <div class="nav navbar-nav js-desktop-menu"> <ul id="menu-main-menu" class="clearfix"> <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children"> <a href="#!">Buy</a> <ul class="sub-menu"> <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a href="listings?type=Buy">Property For Sale</a> </li> <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a href="auction">Current Auction Properties</a> </li> </ul> </li> <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"> <a href="#!">Rent</a> <ul class="sub-menu"> <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a href="?type=Rent">PROPERTY FOR RENT</a> </li> <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a href="">PG / HOSTEL</a> </li> </ul> </li> <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"> <a href="#!">Sell</a> <ul class="sub-menu"> <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a href="buying-at-auction">POST YOUR PROPERTY</a> </li> <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a href="listings?type=Sold">SELL AD PACKAGES</a> </li> </ul> </li> <li class="menu-item menu-item-type-custom menu-item-object-custom"> <a href="aboutus.html">About</a> </li> <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a href="contact">Contact</a> </li> <li class="hidden-xs hidden-sm header-search"> <a href="#!" data-toggle="modal" data-target="#search-modal" class="pull-right"> <i class="fa fa-search"></i> </a> </li> </ul> </div> <div class="nav navbar-nav js-mobile-menu" style="display:none"> <ul id="menu-main-menu" class="clearfix"> <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children"> <a href="#!">Buy</a> <ul class="sub-menu"> <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a href="listings?type=Buy">Property For Sale</a> </li> <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a href="auction">Current Auction Properties</a> </li> </ul> </li> <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"> <a href="#!">Rent</a> <ul class="sub-menu"> <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a href="?type=Rent">PROPERTY FOR RENT</a> </li> <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a href="">PG / HOSTEL</a> </li> </ul> </li> <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"> <a href="#!">Sell</a> <ul class="sub-menu"> <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a href="buying-at-auction">POST YOUR PROPERTY</a> </li> <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a href="listings?type=Sold">SELL AD PACKAGES</a> </li> </ul> </li> <li class="menu-item menu-item-type-custom menu-item-object-custom"> <a href="aboutus.html">About</a> </li> <li class="hidden-xs hidden-sm header-search"> <a href="#!" data-toggle="modal" data-target="#search-modal" class="pull-right"> <i class="fa fa-search"></i> </a> </li> </ul> </div> <div id="toggle-navbar"><i class="icon-angle-right"></i></div> </nav> </div> </div> <div class="ld-navbar"> <div class="container"> <div class="row"> <div class="col-sm-5 ld-navbar-padding"> <ul class="list-unstyled ld-navbar-logo"> <li> <a href="index.html"> <img src="" alt=""> </a> </li> <li> <br> </li> </ul> </div> <div class="col-md-7 ld-navbar-padding ld-navbar-agents"> <div class="row"> <div class="col-xs-2 text-right"> <a href="#contact" class="btn btn-primary btn-custom ld-navbar-btn">Email agent</a> </div> </div> </div> </div> </div> </div>
-</header></head><body class="fixed-header"> <div id="search-modal" class="modal fade search-modal js-search-modal" role="dialog" aria-labelledby="search-modal-label" aria-hidden="true"> <div class="modal-dialog"> <div class="modal-content"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> </div> <div class="modal-body"> <h3 id="search-modal-label" class="section-title text-center"><span>Property Search</span></h3> <br> <form class="property-search-form" action="/listings" method="get" id="search_form"> <input type="hidden" name="order" value=""> <input type="hidden" name="direction" value=""> <input type="hidden" name="view_type" value="grid-view"> <div class="row"> <div class="col-xs-12 col-sm-4 col-md-3 form-group select"> <select class="form-control chosen-select" name="type" id="select_type"> <option value="Buy">Buy</option> <option value="Rent">Rent</option> <option value="Sold">Sold</option> </select> </div> <div class="col-xs-12 col-sm-4 col-md-6 form-group"> <input id="search_what_footer" type="text" value="" placeholder="Search Properties" class="form-control search_what" name="address"> </div> <div class="col-sm-offset-3 col-md-offset-3 col-xs-12 col-sm-4 col-md-3 form-group"> <input type="submit" value="Search" class="btn btn-primary btn-block form-control"> </div> </div> <p> <a href="#" class="toggle-property-search-more"> <span class="more">Show more search options</span> <span class="less hide">Hide additional search options</span> </a> </p> <div class="property-search-more"> <div class="row"> <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select class="form-control chosen-select" name="property_type"> <option value="">Property Type</option> <option value="Residential">Residential</option> <option value="Commercial">Commercial</option> <option value="Rural">Rural</option> <option value="Business">Business</option> </select> </div> <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select class="form-control chosen-select" name="price_from"> <option value="">Price Min</option> <option class="js-search-sale-price" value="50000">$50,000</option> </select> </div> <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select class="form-control chosen-select" name="price_to"> <option value="">Price Max</option> <option class="js-search-rent-price hide" value="3000">$3,000</option> </select> </div> <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select class="form-control chosen-select" name="beds"> <option value="">Bedrooms</option> <option value="1">1 Room</option> <option value="2">2 Rooms</option> <option value="3">3 Rooms</option> <option value="4">4 Rooms</option> <option value="5">5+ Rooms</option> </select> </div> <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select class="form-control chosen-select" name="baths"> <option value="">Bathrooms</option> <option value="1">1 Room</option> <option value="2">2 Rooms</option> <option value="3">3 Rooms</option> <option value="4">4 Rooms</option> <option value="5">5+ Rooms</option> </select> </div> <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select class="form-control chosen-select" name="cars"> <option value="">Parking</option> <option value="1">1 Space</option> <option value="2">2 Spaces</option> <option value="3">3 Spaces</option> <option value="4">4 Spaces</option> <option value="5">5+ Spaces</option> </select> </div> </div> </div> </form> </div> </div> </div> </div> <div id="template-slideshow" class="slideshow-type-property"> <div class="slides"> <div class="slide slide-1"> <div class="home-img-slide"> <span class="user image sample-1-slider-image" data-id="1846" data-name="sample-1-slider-image"> <img src="images/slide1.jpeg" alt="side1"> </span> <div class="home-img-slide-content"> <div class="container"> <div class="banner-blurb is-in-home-slider"> <div class="banner-blurb-content"> <span> <h1>AdilabadProperty <small>Agents you can trust</small></h1> <a href="/listings?type=Buy"> Click here to view our latest properties </a> </span> </div> </div> </div> </div> </div> </div> <div class="slide slide-1"> <div class="owl-lazy" data-src="images/slide2.jpeg"></div> <div class="wrapper-out"> <div class="wrapper"> <div class="inner"> <div class="container"> <h3 class="title"> <a href="/listing-detail?listing_id=98561"> RESORT STYLE LIVING LEASED! NB: Available 20th October 2020. STRICTLY No inspections until 6th October onwards </a> <a href="https://youtu.be/VC2m9pXXIZI" class="property-video-popup"> <i class="fa fa-video-camera"></i> </a> </h3> <div class="clearfix"></div> <div class="description"> <p>If intending to come to the inspection on Tuesday 6th October, please email your registration details to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e59588a597928b8a8a9684cb868a88cb8490">[email&#160;protected]</a> Petrie Mansions...</p> <div class="arrow-right"></div> <div class="property-data"> <div class="property-price">$750</div> <div class="property-details"> <i class="fa fa-bed"></i>3 Beds <i class="fa fa-tint"></i>2 Baths <i class="fa fa-car"></i>1 Cars </div> </div> </div> </div> </div> </div> </div> </div> <div class="slide slide-1"> <div class="owl-lazy" data-src="images/slide3.jpeg"></div> <div class="wrapper-out"> <div class="wrapper"> <div class="inner"> <div class="container"> <h3 class="title"> <a href="/listing-detail?listing_id=88418"> STUNNING BEACHFRONT LOCATION </a> </h3> <div class="clearfix"></div> <div class="description"> <p>Open Homes, Private Inspections & Video Walk-Throughs All of our properties at Richardson & Wrench Adilabad are available to inspect. If you are...</p> <div class="arrow-right"></div> <div class="property-data"> <div class="property-price">Contact Agent</div> <div class="property-details"> <i class="fa fa-bed"></i>2 Beds <i class="fa fa-tint"></i>1 Baths <i class="fa fa-car"></i>1 Cars </div> </div> </div> </div> </div> </div> </div> </div> <div class="slide slide-1"> <div class="owl-lazy" data-src="images/slide4.jpeg"></div> <div class="wrapper-out"> <div class="wrapper"> <div class="inner"> <div class="container"> <h3 class="title"> <a href="/listing-detail?listing_id=85020"> Could This Possibly Be The Best View in Noosa? </a> </h3> <div class="clearfix"></div> <div class="description"> <p>Open Homes, Private Inspections & Video Walk-Throughs All of our properties at Richardson & Wrench Adilabad are available to inspect. If you are...</p> <div class="arrow-right"></div> <div class="property-data"> <div class="property-price">Price Guide $2,500,000</div> <div class="property-details"> <i class="fa fa-bed"></i>3 Beds <i class="fa fa-tint"></i>2 Baths <i class="fa fa-car"></i>1 Cars </div> </div> </div> </div> </div> </div> </div> </div> <div class="slide slide-1"> <div class="owl-lazy" data-src="images/slide5.jpeg"></div> <div class="wrapper-out"> <div class="wrapper"> <div class="inner"> <div class="container"> <h3 class="title"> <a href="/listing-detail?listing_id=82929"> Single Story Elegant Home - The Ultimate Golfing Lifestyle </a> </h3> <div class="clearfix"></div> <div class="description"> <p>Open Homes, Private Inspections & Video Walk-Throughs All of our properties at Richardson & Wrench Adilabad are available to inspect. If you are...</p> <div class="arrow-right"></div> <div class="property-data"> <div class="property-price">Contact Agent</div> <div class="property-details"> <i class="fa fa-bed"></i>3 Beds <i class="fa fa-tint"></i>4 Baths <i class="fa fa-car"></i>2 Cars </div> </div> </div> </div> </div> </div> </div> </div> </div> </div> <div class="container"> <form class="property-search-form" action="/listings" method="get" id="search_form"> <input type="hidden" name="order" value=""> <input type="hidden" name="direction" value=""> <input type="hidden" name="view_type" value="grid-view"> <div class="row"> <div class="col-xs-12 col-sm-4 col-md-3 form-group select"> <select class="form-control chosen-select" name="type" id="select_type"> <option value="Buy">Buy</option> <option value="Rent">Rent</option> <option value="Sold">Sold</option> </select> </div> <div class="col-xs-12 col-sm-4 col-md-6 form-group"> <input id="search_what" type="text" value="" placeholder="Search Address, Suburb" class="form-control search_what" name="address"> </div> <div class="col-xs-12 col-sm-4 col-md-3 form-group"> <input type="submit" value="Search" class="btn btn-primary btn-block form-control"> </div> </div> <p> <a href="#" class="toggle-property-search-more"> <span class="more hide">Show more search options</span> <span class="less">Hide additional search options </span> </a> </p> <div class="property-search-more show"> <div class="row"> <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select class="form-control chosen-select" name="property_category"> <option value="">Property Type</option> <option value="Apartment">Apartment</option> <option value="House">House</option> <option value="Residential">Land/Development</option> <option value="Retirement">Retirement</option> <option value="Townhouse">Townhouse</option> <option value="Unit">Unit</option> <option value="Villa">Villa</option> </select> </div> <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select class="form-control chosen-select" name="price_from"> <option value="">Price Min</option> <option class="js-search-sale-price" value="50000">$50,000</option> <option class="js-search-rent-price hide" value="3000">$3,000</option> </select> </div> <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select class="form-control chosen-select" name="price_to"> <option value="">Price Max</option> <option class="js-search-sale-price" value="50000">$50,000</option> <option class="js-search-rent-price hide" value="3000">$3,000</option> </select> </div> <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select class="form-control chosen-select" name="beds"> <option value="">Bedrooms</option> <option value="1">1 Room</option> <option value="2">2 Rooms</option> <option value="3">3 Rooms</option> <option value="4">4 Rooms</option> <option value="5">5+ Rooms</option> </select> </div> <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select class="form-control chosen-select" name="baths"> <option value="">Bathrooms</option> <option value="1">1 Room</option> <option value="2">2 Rooms</option> <option value="3">3 Rooms</option> <option value="4">4 Rooms</option> <option value="5">5+ Rooms</option> </select> </div> <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select class="form-control chosen-select" name="cars"> <option value="">Parking</option> <option value="1">1 Space</option> <option value="2">2 Spaces</option> <option value="3">3 Spaces</option> <option value="4">4 Spaces</option> <option value="5">5+ Spaces</option> </select> </div> </div> </div> </form> <div id="search_top"></div> <div class="show-compare" id="property-items" data-view="grid-view"> </div> </div> <div class="footer-about"> <div class="container"> <h2 class="section-title is-gray text-center"><span>AdilabadProperty</span></h2> <div class="row"> <div class="col-sm-8 col-sm-offset-2 text-dark"> <div class="user html about-section-body" data-id="336" data-name="about-section-body"> <div class="page" title="Page 1"> <div class="section"> <div class="layoutArea"> <div class="column"> <p style="text-align:center"><span>Purchase a home or invest in property in Adilabad, QLD</span> </p> <div class="page" title="Page 1"> <div class="section"> <div class="layoutArea"> <div class="column"> <p style="text-align:center"><span>No one knows the real estate market in Adilabad better than we do. For years, we&rsquo;ve been helping clients buy and sell the best houses and apartments in and around Adilabad - be it to those looking for a new family home or for a property investment opportunity.&nbsp;</span></p> </div> </div> </div> </div> <div class="page" title="Page 1"> <div class="section"> <div class="layoutArea"> <div class="column"> <p style="text-align:center"><span>Our capable real estate agents in Adilabad will guide you to the best properties and units for sale that will be well-suited to your budget. You can trust you&rsquo;ll receive nothing but the best with R&amp;W Noosa.&nbsp;</span> </p> </div> </div> </div> </div> <p style="text-align:center"><span><br></span></p> </div> </div> </div> </div> </div> </div> </div> </div> </div> <div class="footer-bottom"> <div class="container"> <div class="row"> <div class="col-1-of-5"> <div class="footer-menu"> <h5>Buy</h5> <ul class="list-unstyled"> <li> <a href="listings?type=Buy">Property For Sale</a> </li> <li> <a href="auction">Current Auction Properties</a> </li> </ul> <br> <h5>Site Links</h5> <ul class="list-unstyled"> <li> <a href="index.html">Home</a> </li> <li> <a href="site-map">Site Map</a> </li> <li> <a href="privacy-policy">Privacy Policy</a> </li> </ul> </div> </div> <div class="col-1-of-5"> <div class="footer-menu"> <h5>Rent</h5> <ul class="list-unstyled"> <li> <a href="?type=Rent">PROPERTY FOR RENT</a> </li> <li> <a href="">PG / HOSTEL</a> </li> </ul> </div> </div> <div class="col-1-of-5"> <div class="footer-menu"> <h5>Sell</h5> <ul class="list-unstyled"> <li> <a href="buying-at-auction">POST YOUR PROPERTY</a> </li> <li> <a href="listings?type=Sold">SELL AD PACKAGES</a> </li> </ul> </div> </div> <div class="col-1-of-5"> <div class="footer-menu"> <h5>About</h5> <ul class="list-unstyled"> <li> <a href="aboutus.html">About Us</a> </li> </ul> </div> </div> <div class="col-1-of-5"> <div class="footer-menu"> <h5>Contact</h5> <ul class="list-unstyled"> <li><a href="contact">Contact Us / Enquire</a></li> <li> 23 Manchriyal Street,<br> Adilabad Heads QLD 4567 </li> <li>Phone: (91) 1234 4567</li> <li>Fax: (91) 1234 4567</li> </ul> <ul class="list-unstyled footer-social"> <li> <a href="https://www.facebook.com/rwnoosa" target="_blank" alt="R&W Adilabad Facebook"> <i class="fa fa-facebook"></i> </a> </li> <li> <a href="https://www.instagram.com/rwnoosa" target="_blank" alt="R&W Adilabad Instagram"> <i class="fa fa-instagram"></i> </a> </li> <li> <a href="https://twitter.com/rwnoosa" target="_blank" alt="R&W Adilabad Twitter"> <i class="fa fa-twitter"></i> </a> </li> <li> <a href="https://www.youtube.com/user/rwnoosa" target="_blank" alt="R&W Adilabad Youtube"> <i class="fa fa-youtube"></i> </a> </li> </ul> </div> </div> </div> <div class="footer-bottom-copyright"> <span> Copyright © 2020 AdilabadProperty <br> All rights reserved </span> </div> <small class="footer-copyright-notice"> Every precaution has been taken to establish accuracy of the above information but does not constitute any representation by the vendor or agent. </small> </div>
-</div> <script src="bundle.js" defer async></script>
-<script type="text/javascript" src="local_js/typeahead.bundle.min.js"></script>
-<script type="text/javascript" src="local_js/search.js"></script>
-<script type="text/javascript" src="local_js/infobox.js"></script>
-<script type="text/javascript" src="local_js/theme_main.min.js"></script>
-<script type="text/javascript" src="local_js/app.js"></script>
-<script type="text/javascript" src="local_js/home.js"></script>
-<script type="text/javascript" src="local_js/share.js"></script>
-<script type="text/javascript" src="local_js/jquery.magnific_popup.min.js"></script>
-<script type="text/javascript" src="local_js/blog_detail.js"></script>
-<script type="text/javascript" src="local_js/form_validation.js"></script>
-<script type="text/javascript" src="local_js/test.js"></script>
-<script type="text/javascript" src="local_js/lity.min.js"></script>
-<script type="text/javascript" src="local_js/slick.min.js"></script> </body></html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AdilabadProperty</title>
+    <meta name="description" content="Finding property made easier.">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <!-- <link rel="stylesheet" href="css/owl.carousel.min.css"> -->
+    <script type="text/javascript" src="local_js/jquery_2.1.1.min.js"></script>
+    <script type="text/javascript" src="local_js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="local_js/jquery.form.min.js"></script>
+    <!-- <script src="local_js/owl.carousel.min.js"></script> -->
+    <header class="navbar nav-right">
+        <div class="container">
+            <div class="navbar-header"> <button class="navbar-toggle" type="button" data-toggle="collapse"
+                    data-target=".navbar-collapse"> <span class="sr-only">Skip navigation</span> <span
+                        class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                <div class="navbar-brand"> <a href="index.html"> <img id="logo" src="images/logo.png" alt="Logo"> </a>
+                </div>
+                <nav class="collapse navbar-collapse" role="navigation">
+                    <div class="nav navbar-nav js-desktop-menu">
+                        <ul id="menu-main-menu" class="clearfix">
+                            <li
+                                class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children">
+                                <a href="#!">Buy</a>
+                                <ul class="sub-menu">
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a
+                                            href="listings?type=Buy">Property For Sale</a> </li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a
+                                            href="auction">Current Auction Properties</a> </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                                <a href="#!">Rent</a>
+                                <ul class="sub-menu">
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a
+                                            href="?type=Rent">PROPERTY FOR RENT</a> </li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a href="">PG
+                                            / HOSTEL</a> </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                                <a href="#!">Sell</a>
+                                <ul class="sub-menu">
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a
+                                            href="buying-at-auction">POST YOUR PROPERTY</a> </li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a
+                                            href="listings?type=Sold">SELL AD PACKAGES</a> </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom"> <a
+                                    href="aboutus.html">About</a> </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a
+                                    href="contact">Contact</a> </li>
+                            <li class="hidden-xs hidden-sm header-search"> <a href="#!" data-toggle="modal"
+                                    data-target="#search-modal" class="pull-right"> <i class="fa fa-search"></i> </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav navbar-nav js-mobile-menu" style="display:none">
+                        <ul id="menu-main-menu" class="clearfix">
+                            <li
+                                class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children">
+                                <a href="#!">Buy</a>
+                                <ul class="sub-menu">
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a
+                                            href="listings?type=Buy">Property For Sale</a> </li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a
+                                            href="auction">Current Auction Properties</a> </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                                <a href="#!">Rent</a>
+                                <ul class="sub-menu">
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a
+                                            href="?type=Rent">PROPERTY FOR RENT</a> </li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a href="">PG
+                                            / HOSTEL</a> </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                                <a href="#!">Sell</a>
+                                <ul class="sub-menu">
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a
+                                            href="buying-at-auction">POST YOUR PROPERTY</a> </li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a
+                                            href="listings?type=Sold">SELL AD PACKAGES</a> </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom"> <a
+                                    href="aboutus.html">About</a> </li>
+                            <li class="hidden-xs hidden-sm header-search"> <a href="#!" data-toggle="modal"
+                                    data-target="#search-modal" class="pull-right"> <i class="fa fa-search"></i> </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="toggle-navbar"><i class="icon-angle-right"></i></div>
+                </nav>
+            </div>
+        </div>
+        <div class="ld-navbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5 ld-navbar-padding">
+                        <ul class="list-unstyled ld-navbar-logo">
+                            <li> <a href="index.html"> <img src="" alt=""> </a> </li>
+                            <li> <br> </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-7 ld-navbar-padding ld-navbar-agents">
+                        <div class="row">
+                            <div class="col-xs-2 text-right"> <a href="#contact"
+                                    class="btn btn-primary btn-custom ld-navbar-btn">Email agent</a> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</head>
+
+<body class="fixed-header">
+    <div id="search-modal" class="modal fade search-modal js-search-modal" role="dialog"
+        aria-labelledby="search-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"> <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">×</span><span class="sr-only">Close</span></button> </div>
+                <div class="modal-body">
+                    <h3 id="search-modal-label" class="section-title text-center"><span>Property Search</span></h3> <br>
+                    <form class="property-search-form" action="/listings" method="get" id="search_form"> <input
+                            type="hidden" name="order" value=""> <input type="hidden" name="direction" value=""> <input
+                            type="hidden" name="view_type" value="grid-view">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 col-md-3 form-group select"> <select
+                                    class="form-control chosen-select" name="type" id="select_type">
+                                    <option value="Buy">Buy</option>
+                                    <option value="Rent">Rent</option>
+                                </select> </div>
+                            <div class="col-xs-12 col-sm-4 col-md-6 form-group"> <input id="search_what_footer"
+                                    type="text" value="" placeholder="Search Properties"
+                                    class="form-control search_what" name="address"> </div>
+                            <div class="col-sm-offset-3 col-md-offset-3 col-xs-12 col-sm-4 col-md-3 form-group"> <input
+                                    type="submit" value="Search" class="btn btn-primary btn-block form-control"> </div>
+                        </div>
+                        <p> <a href="#" class="toggle-property-search-more"> <span class="more">Show more search
+                                    options</span> <span class="less hide">Hide additional search options</span> </a>
+                        </p>
+                        <div class="property-search-more">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
+                                        class="form-control chosen-select" name="property_type">
+                                        <option value="">Property Type</option>
+                                        <option value="Residential">Residential</option>
+                                        <option value="Commercial">Commercial</option>
+                                        <option value="Rural">Rural</option>
+                                        <option value="Business">Business</option>
+                                    </select> </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
+                                        class="form-control chosen-select" name="price_from">
+                                        <option value="">Price Min</option>
+                                        <option class="js-search-sale-price" value="50000">$50,000</option>
+                                    </select> </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
+                                        class="form-control chosen-select" name="price_to">
+                                        <option value="">Price Max</option>
+                                        <option class="js-search-rent-price hide" value="3000">$3,000</option>
+                                    </select> </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
+                                        class="form-control chosen-select" name="beds">
+                                        <option value="">Bedrooms</option>
+                                        <option value="1">1 Room</option>
+                                        <option value="2">2 Rooms</option>
+                                        <option value="3">3 Rooms</option>
+                                        <option value="4">4 Rooms</option>
+                                        <option value="5">5+ Rooms</option>
+                                    </select> </div>
+                                <!-- <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
+                                        class="form-control chosen-select" name="baths">
+                                        <option value="">Bathrooms</option>
+                                        <option value="1">1 Room</option>
+                                        <option value="2">2 Rooms</option>
+                                        <option value="3">3 Rooms</option>
+                                        <option value="4">4 Rooms</option>
+                                        <option value="5">5+ Rooms</option>
+                                    </select> </div> -->
+                                <!-- <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
+                                        class="form-control chosen-select" name="cars">
+                                        <option value="">Parking</option>
+                                        <option value="1">1 Space</option>
+                                        <option value="2">2 Spaces</option>
+                                        <option value="3">3 Spaces</option>
+                                        <option value="4">4 Spaces</option>
+                                        <option value="5">5+ Spaces</option>
+                                    </select> </div> -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="template-slideshow" class="slideshow-type-property">
+        <div class="slides">
+            <div class="slide slide-1">
+                <div class="home-img-slide"> <span class="user image sample-1-slider-image" data-id="1846"
+                        data-name="sample-1-slider-image"> <img src="images/slide1.jpeg" alt="side1"> </span>
+                    <div class="home-img-slide-content">
+                        <div class="container">
+                            <div class="banner-blurb is-in-home-slider">
+                                <div class="banner-blurb-content"> <span>
+                                        <h1>AdilabadProperty <small>Agents you can trust</small></h1> <a
+                                            href="/listings?type=Buy"> Click here to view our latest properties </a>
+                                    </span> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide slide-1">
+                <div class="owl-lazy" data-src="images/slide2.jpeg"></div>
+                <div class="wrapper-out">
+                    <div class="wrapper">
+                        <div class="inner">
+                            <div class="container">
+                                <h3 class="title"> <a href="/listing-detail?listing_id=98561"> RESORT STYLE LIVING
+                                        LEASED! NB: Available 20th October 2020. STRICTLY No inspections until 6th
+                                        October onwards </a> <a href="https://youtu.be/VC2m9pXXIZI"
+                                        class="property-video-popup"> <i class="fa fa-video-camera"></i> </a> </h3>
+                                <div class="clearfix"></div>
+                                <div class="description">
+                                    <p>If intending to come to the inspection on Tuesday 6th October, please email your
+                                        registration details to <a href="/cdn-cgi/l/email-protection"
+                                            class="__cf_email__"
+                                            data-cfemail="e59588a597928b8a8a9684cb868a88cb8490">[email&#160;protected]</a>
+                                        Petrie Mansions...</p>
+                                    <div class="arrow-right"></div>
+                                    <div class="property-data">
+                                        <div class="property-price">$750</div>
+                                        <div class="property-details"> <i class="fa fa-bed"></i>3 Beds <i
+                                                class="fa fa-tint"></i>2 Baths <i class="fa fa-car"></i>1 Cars </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide slide-1">
+                <div class="owl-lazy" data-src="images/slide3.jpeg"></div>
+                <div class="wrapper-out">
+                    <div class="wrapper">
+                        <div class="inner">
+                            <div class="container">
+                                <h3 class="title"> <a href="/listing-detail?listing_id=88418"> STUNNING BEACHFRONT
+                                        LOCATION </a> </h3>
+                                <div class="clearfix"></div>
+                                <div class="description">
+                                    <p>Open Homes, Private Inspections & Video Walk-Throughs All of our properties at
+                                        Richardson & Wrench Adilabad are available to inspect. If you are...</p>
+                                    <div class="arrow-right"></div>
+                                    <div class="property-data">
+                                        <div class="property-price">Contact Agent</div>
+                                        <div class="property-details"> <i class="fa fa-bed"></i>2 Beds <i
+                                                class="fa fa-tint"></i>1 Baths <i class="fa fa-car"></i>1 Cars </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide slide-1">
+                <div class="owl-lazy" data-src="images/slide4.jpeg"></div>
+                <div class="wrapper-out">
+                    <div class="wrapper">
+                        <div class="inner">
+                            <div class="container">
+                                <h3 class="title"> <a href="/listing-detail?listing_id=85020"> Could This Possibly Be
+                                        The Best View in Adilabad? </a> </h3>
+                                <div class="clearfix"></div>
+                                <div class="description">
+                                    <p>Open Homes, Private Inspections & Video Walk-Throughs All of our properties at
+                                        Richardson & Wrench Adilabad are available to inspect. If you are...</p>
+                                    <div class="arrow-right"></div>
+                                    <div class="property-data">
+                                        <div class="property-price">Price Guide $2,500,000</div>
+                                        <div class="property-details"> <i class="fa fa-bed"></i>3 Beds <i
+                                                class="fa fa-tint"></i>2 Baths <i class="fa fa-car"></i>1 Cars </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide slide-1">
+                <div class="owl-lazy" data-src="images/slide5.jpeg"></div>
+                <div class="wrapper-out">
+                    <div class="wrapper">
+                        <div class="inner">
+                            <div class="container">
+                                <h3 class="title"> <a href="/listing-detail?listing_id=82929"> Single Story Elegant Home
+                                        - The Ultimate Golfing Lifestyle </a> </h3>
+                                <div class="clearfix"></div>
+                                <div class="description">
+                                    <p>Open Homes, Private Inspections & Video Walk-Throughs All of our properties at
+                                        Richardson & Wrench Adilabad are available to inspect. If you are...</p>
+                                    <div class="arrow-right"></div>
+                                    <div class="property-data">
+                                        <div class="property-price">Contact Agent</div>
+                                        <div class="property-details"> <i class="fa fa-bed"></i>3 Beds <i
+                                                class="fa fa-tint"></i>4 Baths <i class="fa fa-car"></i>2 Cars </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <form class="property-search-form" action="/listings" method="get" id="search_form"> <input type="hidden"
+                name="order" value=""> <input type="hidden" name="direction" value=""> <input type="hidden"
+                name="view_type" value="grid-view">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-3 form-group select"> <select class="form-control chosen-select"
+                        name="type" id="select_type">
+                        <option value="Buy">Buy</option>
+                        <option value="Rent">Rent</option>
+                    </select> </div>
+                <div class="col-xs-12 col-sm-4 col-md-6 form-group"> <input id="search_what" type="text" value=""
+                        placeholder="Search Address, Suburb" class="form-control search_what" name="address"> </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 form-group"> <input type="submit" value="Search"
+                        class="btn btn-primary btn-block form-control"> </div>
+            </div>
+            <p> <a href="#" class="toggle-property-search-more"> <span class="more hide">Show more search options</span>
+                    <span class="less">Hide additional search options </span> </a> </p>
+            <div class="property-search-more show">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
+                            class="form-control chosen-select" name="property_category">
+                            <option value="">Property Type</option>
+                            <option value="Apartment">Apartment</option>
+                            <option value="House">House</option>
+                            <option value="Residential">Land/Development</option>
+                        </select> </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
+                            class="form-control chosen-select" name="price_from">
+                            <option value="">Price Min</option>
+                            <option class="js-search-sale-price" value="50000" >   &#8377; 50,000</option>
+                            <option class="js-search-rent-price hide" value="3000" >   &#8377; 3,000</option>
+                        </select> </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
+                            class="form-control chosen-select" name="price_to">
+                            <option value="">Price Max</option>
+                            <option class="js-search-sale-price" value="50000" >   &#8377; 50,000</option>
+                            <option class="js-search-rent-price hide" value="3000" >   &#8377; 3,000</option>
+                        </select> </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
+                            class="form-control chosen-select" name="beds">
+                            <option value="">Bedrooms</option>
+                            <option value="1">1 Room</option>
+                            <option value="2">2 Rooms</option>
+                            <option value="3">3 Rooms</option>
+                            <option value="4">4 Rooms</option>
+                            <option value="5">5+ Rooms</option>
+                        </select> </div>
+                    <!-- <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
+                            class="form-control chosen-select" name="baths">
+                            <option value="">Bathrooms</option>
+                            <option value="1">1 Room</option>
+                            <option value="2">2 Rooms</option>
+                            <option value="3">3 Rooms</option>
+                            <option value="4">4 Rooms</option>
+                            <option value="5">5+ Rooms</option>
+                        </select> </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
+                            class="form-control chosen-select" name="cars">
+                            <option value="">Parking</option>
+                            <option value="1">1 Space</option>
+                            <option value="2">2 Spaces</option>
+                            <option value="3">3 Spaces</option>
+                            <option value="4">4 Spaces</option>
+                            <option value="5">5+ Spaces</option>
+                        </select> </div> -->
+                </div>
+            </div>
+        </form>
+        <div id="search_top"></div>
+        <div class="show-compare" id="property-items" data-view="grid-view"> </div>
+    </div>
+
+
+
+
+<div class="container">
+    <h2 class="js-latest-listings section-title style1 text-center"><span>Latest Listings</span></h2>
+
+    <div class="owl-carousel owl-theme">
+
+        <div class="col-sm-12">
+            <div class="property-item primary-tooltips featured title-above-image">
+            <div class="property-title">
+            <h3 class="title">Adilabad HEADS</h3>
+            <h4 class="address">19/2 Serenity Close</h4>
+            </div>
+            <figure class="property-thumbnail">
+            <img class="attachment-property-thumb size-property-thumb wp-post-image" src="images/slide4.jpeg" alt="19/2 Serenity Close, Adilabad HEADS">
+            <div class="property-tag tag-right">
+            For Sale
+            </div>
+            <figcaption>
+            <div class="property-excerpt">
+            <div class="subtitle">
+            <span class="type">Residential</span> <span>·</span>
+            <span class="status">
+            For Sale
+            </span>
+            </div>
+            <p>Beautifully renovated mid floor Ocean view apartment superbly situated amongst the natural tree lined landscape &amp; immaculately positioned on a...</p>
+            </div>
+            </figcaption>
+            </figure>
+            <div class="property-content">
+            <div class="property-meta clearfix">
+            <div class="property-meta-title">OCEAN VIEW Adilabad APARTMENT</div>
+            <div>
+            <div class="meta-title"><i class="fa fa-bed"></i></div>
+            <div class="meta-data" data-toggle="tooltip" title="" data-original-title="Bedrooms">
+            2 Bedrooms
+            </div>
+            </div>
+            <div>
+            <div class="meta-title"><i class="fa fa-tint"></i></div>
+            <div class="meta-data" data-toggle="tooltip" title="" data-original-title="Bathrooms">
+            2 Bathrooms
+            </div>
+            </div>
+            <div>
+            <div class="meta-title"><i class="fa fa-car"></i></div>
+            <div class="meta-data" data-toggle="tooltip" title="" data-original-title="Parking">
+            1 Parking
+            </div>
+            </div>
+            </div>
+            <div class="property-price">
+            <div class="share-unit" data-page-url="listing-detail?listing_id=100529" data-page-title="Ocean View Adilabad Apartment" data-page-description="Beautifully renovated mid floor Ocean view apartment superbly situated amongst the natural tree lined landscape &amp; immaculately positioned on a forested ridgeline that rests above the waterways of Adilabad Sound. 
+            
+            Capturing glistening views over Adilabad Sound, Laguna Bay &amp; Adilabad North Shore this is a..." data-image="https://assets.boxdice.com.au/richardson_wrench_Adilabad/listings/4004/ee1f6c59.jpg" style="display: none;">
+            <a class="social-facebook js-share" data-share="facebook" href="#">
+            <i class="fa fa-facebook"></i>
+            </a>
+            <a class="social-twitter js-share" data-share="twitter" href="#">
+            <i class="fa fa-twitter"></i>
+            </a>
+            <a class="social-google js-share" data-share="google" href="#">
+            <i class="fa fa-google-plus"></i>
+            </a>
+            <a class="social-pinterest js-share" data-share="pinterest" href="#">
+            <i class="fa fa-pinterest-p"></i>
+            </a>
+            <a class="social-linkedin js-share" data-share="linkedin" href="#">
+            <i class="fa fa-linkedin"></i>
+            </a>
+            <a class="social-envelope js-share" data-share="email" href="#">
+            <i class="fa fa-envelope"></i>
+            </a>
+            </div>
+            <i class="fa fa-share-alt share-property"></i>
+            <div class="price-tag">Price Guide $835,000</div>
+            <div class="clearfix"></div>
+            </div>
+            </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-sm-12">
+            <div class="property-item primary-tooltips featured title-above-image">
+            <div class="property-title">
+            <h3 class="title">Adilabad HEADS</h3>
+            <h4 class="address">19/2 Serenity Close</h4>
+            </div>
+            <figure class="property-thumbnail">
+            <img class="attachment-property-thumb size-property-thumb wp-post-image" src="images/slide4.jpeg" alt="19/2 Serenity Close, Adilabad HEADS">
+            <div class="property-tag tag-right">
+            For Sale
+            </div>
+            <figcaption>
+            <div class="property-excerpt">
+            <div class="subtitle">
+            <span class="type">Residential</span> <span>·</span>
+            <span class="status">
+            For Sale
+            </span>
+            </div>
+            <p>Beautifully renovated mid floor Ocean view apartment superbly situated amongst the natural tree lined landscape &amp; immaculately positioned on a...</p>
+            </div>
+            </figcaption>
+            </figure>
+            <div class="property-content">
+            <div class="property-meta clearfix">
+            <div class="property-meta-title">OCEAN VIEW Adilabad APARTMENT</div>
+            <div>
+            <div class="meta-title"><i class="fa fa-bed"></i></div>
+            <div class="meta-data" data-toggle="tooltip" title="" data-original-title="Bedrooms">
+            2 Bedrooms
+            </div>
+            </div>
+            <div>
+            <div class="meta-title"><i class="fa fa-tint"></i></div>
+            <div class="meta-data" data-toggle="tooltip" title="" data-original-title="Bathrooms">
+            2 Bathrooms
+            </div>
+            </div>
+            <div>
+            <div class="meta-title"><i class="fa fa-car"></i></div>
+            <div class="meta-data" data-toggle="tooltip" title="" data-original-title="Parking">
+            1 Parking
+            </div>
+            </div>
+            </div>
+            <div class="property-price">
+            <div class="share-unit" data-page-url="listing-detail?listing_id=100529" data-page-title="Ocean View Adilabad Apartment" data-page-description="Beautifully renovated mid floor Ocean view apartment superbly situated amongst the natural tree lined landscape &amp; immaculately positioned on a forested ridgeline that rests above the waterways of Adilabad Sound. 
+            
+            Capturing glistening views over Adilabad Sound, Laguna Bay &amp; Adilabad North Shore this is a..." data-image="https://assets.boxdice.com.au/richardson_wrench_Adilabad/listings/4004/ee1f6c59.jpg" style="display: none;">
+            <a class="social-facebook js-share" data-share="facebook" href="#">
+            <i class="fa fa-facebook"></i>
+            </a>
+            <a class="social-twitter js-share" data-share="twitter" href="#">
+            <i class="fa fa-twitter"></i>
+            </a>
+            <a class="social-google js-share" data-share="google" href="#">
+            <i class="fa fa-google-plus"></i>
+            </a>
+            <a class="social-pinterest js-share" data-share="pinterest" href="#">
+            <i class="fa fa-pinterest-p"></i>
+            </a>
+            <a class="social-linkedin js-share" data-share="linkedin" href="#">
+            <i class="fa fa-linkedin"></i>
+            </a>
+            <a class="social-envelope js-share" data-share="email" href="#">
+            <i class="fa fa-envelope"></i>
+            </a>
+            </div>
+            <i class="fa fa-share-alt share-property"></i>
+            <div class="price-tag">Price Guide $835,000</div>
+            <div class="clearfix"></div>
+            </div>
+            </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <div class="footer-about">
+        <div class="container">
+            <h2 class="section-title is-gray text-center"><span>AdilabadProperty</span></h2>
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 text-dark">
+                    <div class="user html about-section-body" data-id="336" data-name="about-section-body">
+                        <div class="page" title="Page 1">
+                            <div class="section">
+                                <div class="layoutArea">
+                                    <div class="column">
+                                        <p style="text-align:center"><span>Purchase a home or invest in property in
+                                                Adilabad, QLD</span> </p>
+                                        <div class="page" title="Page 1">
+                                            <div class="section">
+                                                <div class="layoutArea">
+                                                    <div class="column">
+                                                        <p style="text-align:center"><span>No one knows the real estate
+                                                                market in Adilabad better than we do. For years,
+                                                                we&rsquo;ve been helping clients buy and sell the best
+                                                                houses and apartments in and around Adilabad - be it to
+                                                                those looking for a new family home or for a property
+                                                                investment opportunity.&nbsp;</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="page" title="Page 1">
+                                            <div class="section">
+                                                <div class="layoutArea">
+                                                    <div class="column">
+                                                        <p style="text-align:center"><span>Our capable real estate
+                                                                agents in Adilabad will guide you to the best properties
+                                                                and units for sale that will be well-suited to your
+                                                                budget. You can trust you&rsquo;ll receive nothing but
+                                                                the best with R&amp;W Adilabad.&nbsp;</span> </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p style="text-align:center"><span><br></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-1-of-5">
+                    <div class="footer-menu">
+                        <h5>Buy</h5>
+                        <ul class="list-unstyled">
+                            <li> <a href="listings?type=Buy">Property For Sale</a> </li>
+                            <li> <a href="auction">Current Auction Properties</a> </li>
+                        </ul> <br>
+                        <h5>Site Links</h5>
+                        <ul class="list-unstyled">
+                            <li> <a href="index.html">Home</a> </li>
+                            <li> <a href="site-map">Site Map</a> </li>
+                            <li> <a href="privacy-policy">Privacy Policy</a> </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-1-of-5">
+                    <div class="footer-menu">
+                        <h5>Rent</h5>
+                        <ul class="list-unstyled">
+                            <li> <a href="?type=Rent">PROPERTY FOR RENT</a> </li>
+                            <li> <a href="">PG / HOSTEL</a> </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-1-of-5">
+                    <div class="footer-menu">
+                        <h5>Sell</h5>
+                        <ul class="list-unstyled">
+                            <li> <a href="buying-at-auction">POST YOUR PROPERTY</a> </li>
+                            <li> <a href="listings?type=Sold">SELL AD PACKAGES</a> </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-1-of-5">
+                    <div class="footer-menu">
+                        <h5>About</h5>
+                        <ul class="list-unstyled">
+                            <li> <a href="aboutus.html">About Us</a> </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-1-of-5">
+                    <div class="footer-menu">
+                        <h5>Contact</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="contact">Contact Us / Enquire</a></li>
+                            <li> 23 Manchriyal Street,<br> Adilabad Heads QLD 4567 </li>
+                            <li>Phone: (91) 1234 4567</li>
+                            <li>Fax: (91) 1234 4567</li>
+                        </ul>
+                        <ul class="list-unstyled footer-social">
+                            <li> <a href="https://www.facebook.com/rwAdilabad" target="_blank" alt="R&W Adilabad Facebook">
+                                    <i class="fa fa-facebook"></i> </a> </li>
+                            <li> <a href="https://www.instagram.com/rwAdilabad" target="_blank"
+                                    alt="R&W Adilabad Instagram"> <i class="fa fa-instagram"></i> </a> </li>
+                            <li> <a href="https://twitter.com/rwAdilabad" target="_blank" alt="R&W Adilabad Twitter"> <i
+                                        class="fa fa-twitter"></i> </a> </li>
+                            <li> <a href="https://www.youtube.com/user/rwAdilabad" target="_blank"
+                                    alt="R&W Adilabad Youtube"> <i class="fa fa-youtube"></i> </a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-copyright"> <span> Copyright © 2020 AdilabadProperty <br> All rights reserved
+                </span> </div> <small class="footer-copyright-notice"> Every precaution has been taken to establish
+                accuracy of the above information but does not constitute any representation by the vendor or agent.
+            </small>
+        </div>
+    </div>
+
+    <script src="bundle.js" defer async></script>
+    <script type="text/javascript" src="local_js/typeahead.bundle.min.js"></script>
+    <script type="text/javascript" src="local_js/search.js"></script>
+    <script type="text/javascript" src="local_js/infobox.js"></script>
+    <script type="text/javascript" src="local_js/theme_main.min.js"></script>
+    <script type="text/javascript" src="local_js/app.js"></script>
+    <script type="text/javascript" src="local_js/home.js"></script>
+    <script type="text/javascript" src="local_js/share.js"></script>
+    <script type="text/javascript" src="local_js/jquery.magnific_popup.min.js"></script>
+    <script type="text/javascript" src="local_js/blog_detail.js"></script>
+    <script type="text/javascript" src="local_js/form_validation.js"></script>
+    <script type="text/javascript" src="local_js/test.js"></script>
+    <script type="text/javascript" src="local_js/lity.min.js"></script>
+    <script type="text/javascript" src="local_js/slick.min.js"></script>
+</body>
+
+</html>

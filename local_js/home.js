@@ -1,47 +1,38 @@
-jQuery(document).ready(function($) {
-  jQuery('#template-slideshow .owl-lazy').css('height', 720);
+$(document).ready(function($) {
+  $('#template-slideshow .owl-lazy').css('height', 720);
 
-  // Pause autoplay on slide hover, but not on mobile devices.
-  var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  if (isMobile) {
-    var slideshowPauseHover = 'false';
-  } else {
-    var slideshowPauseHover = 'true';
-  }
+  // var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  // var slideshowPauseHover  =  isMobile ? 'false' : 'true'; 
+  $('.owl-carousel').owlCarousel({
+    loop:true,responsiveClass:true,
+    responsive:{0:{items:1,nav:true},600:{items:3,nav:false},1000:{items:4,loop:false}}
+  });
 
-  var slideshow = jQuery('#template-slideshow .slides');
-  
-  if( $(slideshow).find('.slide').length>1 ) {
-    loopStr = true;  
-  } else {
-    loopStr = false;
-  }
-  
+  var slideshow = $('#template-slideshow .slides');
+
+  loopStr = ( $(slideshow).find('.slide').length>1 ) ? true : false;
+
   slideshow.owlCarousel({
+    navigation:true,
+    paginationSpeed : 1000,
+    goToFirstSpeed : 2000,
+    singleItem : true,
+    autoHeight : true,
     items: 1,
     margin: 0,
     lazyLoad: true,
     loop: loopStr,
-    mouseDrag: 1,
-    touchDrag: 1,
-    navContainerClass: 'owl-nav',
-    navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-    nav: false,
-    dots: true,
-    autoHeight: false,
-    autoplay: true,
-    autoplayTimeout: 4000,
-    animateIn: 'fadeIn',
-    animateOut: 'fadeOut',
-  });
+    transitionStyle:"fade"
+});
+
 
   slideshow.fadeTo(400, 1, function() {
-    jQuery('.spinner').remove();
+    $('.spinner').remove();
   });
 
-  jQuery('#template-slideshow').on('click', function() {
-    slideshow.trigger('stop.owl.autoplay');
-  })
+  // $('#template-slideshow').on('click', function() {
+  //   slideshow.trigger('stop.owl.autoplay');
+  // })
   
   $('.js-search-modal').on('shown.bs.modal', function () {
     $('html').addClass('modal-open');
@@ -113,3 +104,16 @@ jQuery(document).ready(function($) {
 });//end ready
 
 requestAnimationFrame(function() { });
+
+
+
+
+
+
+// 50000
+// 500000
+// 1000000
+// 2000000
+// 5000000
+// 10000000
+// 50000000
