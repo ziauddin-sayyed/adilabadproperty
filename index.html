@@ -23,7 +23,7 @@
                 <nav class="collapse navbar-collapse" role="navigation">
                     <div class="nav navbar-nav js-desktop-menu">
                         <ul id="menu-main-menu" class="clearfix">
-                            <li
+                            <!-- <li
                                 class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children">
                                 <a href="#!">Buy</a>
                                 <ul class="sub-menu">
@@ -50,7 +50,7 @@
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a
                                             href="listings?type=Sold">SELL AD PACKAGES</a> </li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li class="menu-item menu-item-type-custom menu-item-object-custom"> <a
                                     href="aboutus.html">About</a> </li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a
@@ -62,7 +62,7 @@
                     </div>
                     <div class="nav navbar-nav js-mobile-menu" style="display:none">
                         <ul id="menu-main-menu" class="clearfix">
-                            <li
+                            <!-- <li
                                 class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor menu-item-has-children">
                                 <a href="#!">Buy</a>
                                 <ul class="sub-menu">
@@ -89,7 +89,7 @@
                                     <li class="menu-item menu-item-type-post_type menu-item-object-page"> <a
                                             href="listings?type=Sold">SELL AD PACKAGES</a> </li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li class="menu-item menu-item-type-custom menu-item-object-custom"> <a
                                     href="aboutus.html">About</a> </li>
                             <li class="hidden-xs hidden-sm header-search"> <a href="#!" data-toggle="modal"
@@ -325,56 +325,82 @@
             </div>
         </div>
     </div>
+
     <div class="container">
-        <form class="property-search-form" action="/listings" method="get" id="search_form"> <input type="hidden"
-                name="order" value=""> <input type="hidden" name="direction" value=""> <input type="hidden"
-                name="view_type" value="grid-view">
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-3 form-group select"> <select class="form-control chosen-select"
-                        name="type" id="select_type">
-                        <option value="Buy">Buy</option>
-                        <option value="Rent">Rent</option>
-                    </select> </div>
-                <div class="col-xs-12 col-sm-4 col-md-6 form-group"> <input id="search_what" type="text" value=""
-                        placeholder="Search Address, Suburb" class="form-control search_what" name="address"> </div>
-                <div class="col-xs-12 col-sm-4 col-md-3 form-group"> <input type="submit" value="Search"
-                        class="btn btn-primary btn-block form-control"> </div>
+        <div class="row">
+            <p style="text-align: justify;"> <b>AdilabadProperty.com</b>  is a dedicated online portal for people who want to buy, rent and sell properties in and around Adilabad District. </p>
+            <p style="text-align: justify;">Our core team have more than fifteen years of local real estate experience and have been at service of clients for all kind of property needs, we use latest technologies, market research and business strategies to exceed your expectations. </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-1 vertical-desk-add">
             </div>
-            <p> <a href="#" class="toggle-property-search-more"> <span class="more hide">Show more search options</span>
-                    <span class="less">Hide additional search options </span> </a> </p>
-            <div class="property-search-more show">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
-                            class="form-control chosen-select" name="property_category">
-                            <option value="">Property Type</option>
-                            <option value="Apartment">Apartment</option>
-                            <option value="House">House</option>
-                            <option value="Residential">Land/Development</option>
-                        </select> </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
-                            class="form-control chosen-select" name="price_from">
-                            <option value="">Price Min</option>
-                            <option class="js-search-sale-price" value="50000" >   &#8377; 50,000</option>
-                            <option class="js-search-rent-price hide" value="3000" >   &#8377; 3,000</option>
-                        </select> </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
-                            class="form-control chosen-select" name="price_to">
-                            <option value="">Price Max</option>
-                            <option class="js-search-sale-price" value="50000" >   &#8377; 50,000</option>
-                            <option class="js-search-rent-price hide" value="3000" >   &#8377; 3,000</option>
-                        </select> </div>
-                    <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
-                            class="form-control chosen-select" name="beds">
-                            <option value="">Bedrooms</option>
-                            <option value="1">1 Room</option>
-                            <option value="2">2 Rooms</option>
-                            <option value="3">3 Rooms</option>
-                            <option value="4">4 Rooms</option>
-                            <option value="5">5+ Rooms</option>
-                        </select> </div>
-                </div>
+
+            <div class="col-md-10">
+                <form class="property-search-form" action="/listings" method="get" id="search_form"> <input type="hidden"
+                        name="order" value=""> <input type="hidden" name="direction" value=""> <input type="hidden"
+                        name="view_type" value="grid-view">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4 col-md-3 form-group select"> <select class="form-control chosen-select"
+                                name="type" id="select_type">
+                                <option value="Buy">Buy</option>
+                                <option value="Rent">Rent</option>
+                            </select> </div>
+                        <div class="col-xs-12 col-sm-4 col-md-6 form-group"> <input id="search_what" type="text" value=""
+                                placeholder="Search Address, Suburb" class="form-control search_what" name="address"> </div>
+                        <div class="col-xs-12 col-sm-4 col-md-3 form-group"> <input type="submit" value="Search"
+                                class="btn btn-primary btn-block form-control"> </div>
+                    </div>
+                    <p> <a href="#" class="toggle-property-search-more"> <span class="more hide">Show more search options</span>
+                            <span class="less">Hide additional search options </span> </a> </p>
+                    <div class="property-search-more show">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
+                                    class="form-control chosen-select" name="property_category">
+                                    <option value="">Property Type</option>
+                                    <option value="Apartment">Apartment</option>
+                                    <option value="House">House</option>
+                                    <option value="Residential">Land/Development</option>
+                                </select> </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
+                                    class="form-control chosen-select" name="price_from">
+                                    <option value="">Price Min</option>
+                                    <option class="js-search-sale-price" value="50000" >   &#8377; 50,000</option>
+                                    <option class="js-search-rent-price hide" value="3000" >   &#8377; 3,000</option>
+                                </select> </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
+                                    class="form-control chosen-select" name="price_to">
+                                    <option value="">Price Max</option>
+                                    <option class="js-search-sale-price" value="50000" >   &#8377; 50,000</option>
+                                    <option class="js-search-rent-price hide" value="3000" >   &#8377; 3,000</option>
+                                </select> </div>
+                            <div class="col-xs-12 col-sm-6 col-md-4 form-group select"> <select
+                                    class="form-control chosen-select" name="beds">
+                                    <option value="">Bedrooms</option>
+                                    <option value="1">1 Room</option>
+                                    <option value="2">2 Rooms</option>
+                                    <option value="3">3 Rooms</option>
+                                    <option value="4">4 Rooms</option>
+                                    <option value="5">5+ Rooms</option>
+                                </select> </div>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
+            <div class="col-md-1 vertical-desk-add">
+                
+            </div>
+        </div>
+
         <div id="search_top"></div>
         <div class="show-compare" id="property-items" data-view="grid-view"> </div>
     </div>
